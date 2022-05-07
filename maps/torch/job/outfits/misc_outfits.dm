@@ -46,3 +46,21 @@
 	name = OUTFIT_JOB_NAME("ERT Leader - Torch")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/combat/command
 	head = /obj/item/clothing/head/beret/solgov/fleet/command
+
+
+
+/decl/hierarchy/outfit/job/torch/stowaway
+	name = OUTFIT_JOB_NAME("Stowaway - Torch")
+	pda_type = null
+	l_ear = null
+	l_pocket = /obj/item/weapon/wrench
+	r_pocket = /obj/item/weapon/crowbar/prybar
+	id_type = null
+
+/decl/hierarchy/outfit/job/sierra/stowaway/post_equip(var/mob/living/carbon/human/H)
+    ..()
+    var/obj/item/card/id/sierra/stowaway/ID = new(H.loc)
+    ID.registered_name = H.real_name
+    ID.sex = H.gender
+    ID.gender = H.gender
+    H.put_in_hands(ID)
