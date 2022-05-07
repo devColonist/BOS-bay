@@ -230,15 +230,17 @@
 /obj/item/weapon/card/id/torch/stowaway/New()
 	..()
 	var/species = SPECIES_HUMAN
-	if(prob(10))
-		species = pick(SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_IPC)
+	if(prob(25))
+		species = pick(SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_IPC)
 	var/datum/species/S = all_species[species]
 	var/decl/cultural_info/culture/C = SSculture.get_culture(S.default_cultural_info[TAG_CULTURE])
 	var/gender = pick(MALE,FEMALE)
 	assignment = "Passenger"
 	registered_name = C.get_random_name(gender)
 	sex = capitalize(gender)
-	age = rand(19,25)
+	age = rand(7,77)
 	fingerprint_hash = md5(registered_name)
 	dna_hash = md5(fingerprint_hash)
 	blood_type = RANDOM_BLOOD_TYPE
+	military_branch = pick(global.mil_branches.branches)
+	military_rank = pick(military_branch.ranks)

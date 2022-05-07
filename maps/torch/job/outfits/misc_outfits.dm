@@ -57,10 +57,7 @@
 	r_pocket = /obj/item/weapon/crowbar/prybar
 	id_type = null
 
-/decl/hierarchy/outfit/job/sierra/stowaway/post_equip(var/mob/living/carbon/human/H)
+/decl/hierarchy/outfit/job/torch/stowaway/post_equip(var/mob/living/carbon/human/H)
     ..()
-    var/obj/item/card/id/sierra/stowaway/ID = new(H.loc)
-    ID.registered_name = H.real_name
-    ID.sex = H.gender
-    ID.gender = H.gender
-    H.put_in_hands(ID)
+    var/obj/item/weapon/card/id/torch/stowaway/ID = new(H.loc)
+    H.equip_to_slot_or_store_or_drop(ID, id_slot)
